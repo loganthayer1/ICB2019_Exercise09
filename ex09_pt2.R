@@ -27,3 +27,13 @@ d <- ggplot(data = allData, aes(x = as.character(region), y = observations))
 d + geom_bar(stat = "identity") + theme_classic() + 
   xlab("Region") + ylab("Observations")
 
+#DL additions 
+#barplot of population means
+d = ggplot(allData, aes(x = as.character(region), y = observations))
+d  + theme_classic() + stat_summary(geom="bar", fun.y="mean") + 
+  xlab("Region") + ylab("Observations")
+
+#scatterplot
+d = ggplot(allData, aes(x = as.character(region), y = observations))
+d  + theme_classic() + stat_summary(geom="point") + 
+  xlab("Region") + ylab("Observations") + geom_jitter()
